@@ -9,7 +9,7 @@ spring:
       definition: email|sms
     stream:
       bindings:
-        emailsms-in-0: #input binding
+        emailsms-in-0: #input binding; destination is going to be queue name
           destination: send-communication # is going to be considered as queue name by your cloud stream
           group: ${spring.application.name}
 
