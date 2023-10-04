@@ -9,10 +9,11 @@ spring:
       definition: email|sms
     stream:
       bindings:
-        emailsms-in-0: #input binding; destination is going to be queue name
-          destination: send-communication # is going to be considered as queue name by your cloud stream
+        emailsms-in-0:
+          destination: send-communication
           group: ${spring.application.name}
-
+        emailsms-out-0:
+          destination: communication-sent
   rabbitmq:
     host: localhost
     port: 5672

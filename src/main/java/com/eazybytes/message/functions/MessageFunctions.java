@@ -10,23 +10,23 @@ import java.util.function.Function;
 
 @Configuration
 public class MessageFunctions {
+
     private static final Logger log = LoggerFactory.getLogger(MessageFunctions.class);
 
     @Bean
-    public Function<AccountsMsgDto, AccountsMsgDto> email() {
+    public Function<AccountsMsgDto,AccountsMsgDto> email() {
         return accountsMsgDto -> {
-            //send email to actual customers
-          log.info("Sending email with the details:" + accountsMsgDto.toString());
-          return accountsMsgDto;
+            log.info("Sending email with the details : " +  accountsMsgDto.toString());
+            return accountsMsgDto;
         };
     }
 
     @Bean
-    public Function<AccountsMsgDto, Long> sms() {
+    public Function<AccountsMsgDto,Long> sms() {
         return accountsMsgDto -> {
-            //send sms to actual customers
-            log.info("Sending sms with the details:" + accountsMsgDto.toString());
+            log.info("Sending sms with the details : " +  accountsMsgDto.toString());
             return accountsMsgDto.accountNumber();
         };
     }
+
 }
